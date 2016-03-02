@@ -1,0 +1,87 @@
+<!-- <div class="container chart-wrapper">
+    {{statisticStyle}}<h3>User Stories by Status</h3>
+    <hr/>
+    <span ng-model = 'statistic.style'></span>
+    123
+    {{statisticStyle}}<h3>User Stories by Type~~~<span ng-model = 'statistic.style'></span>
+    123</h3>
+    <h3>{{statistic.style}}</h3>
+    
+    
+</div> -->
+
+
+<div class="user-wrapper">
+  <form name="users123.userForm">
+      <table class="table edit">
+          <thead>
+          <tr>
+              <th width="40%">Name</th>
+              <th width="40%">Email</th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="user in users123.users">
+              <td>
+                <ng-form name="userNameForm">
+                  <input required name="userName" type="text" class="form-control" ng-model="user.name" ng-blusersers1.updateUser(user.id, user)"/>
+
+                  <div class="error" ng-messages="userNameForm.userName.$error">
+                    <div ng-message="required">
+                      Please enter a name.
+                    </div>
+                  </div>
+                </ng-form>
+              </td>
+              <td>
+                <ng-form name="userEmailForm">
+                  <input required name="userEmail" type="email" class="form-control" ng-model="user.email" ng-blur="users123.updateUser(user.id, user)"/>
+
+                  <div class="error" ng-messages="userEmailForm.userEmail.$error">
+                    <div ng-message="required">
+                      Please enter an email.
+                    </div>
+                    <div ng-message="email">
+                      Email should be in format example@example.com
+                    </div>
+                  </div>
+                </ng-form>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link"
+                        ng-click="users123.removeUser(user.id)">Remove</button>
+                <a class="btn btn-link" href="#/statistic/{{user.id}}">Statistic</a>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+  </form>
+
+     <div class="well">
+        <h4>Add User</h4>
+
+        <form name="users123.newUserForm" class="form-inline new-user" role="form" novalidate ng-submit="users123.addUser()">
+            <div class="form-group">
+                <input required name="userName" type="text" class="form-control" ng-model="users123.newUser.name" placeholder="Name">
+                <div class="error" ng-messages="users123.newUserForm.userName.$error" ng-if="users123.showMessages('userName')">
+                    <div ng-message="required">
+                      Please enter a name.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input required name="userEmail" type="email" class="form-control" ng-model="users123.newUser.email" placeholder="Email">
+                <div class="error" ng-messages="users123.newUserForm.userEmail.$error" ng-if="users123.showMessages('userEmail')">
+                    <div ng-message="required">
+                      Please enter an email.
+                    </div>
+                    <div ng-message="email">
+                      Email should be in format example@example.com
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div> 
