@@ -8,6 +8,7 @@ var myModule = angular.module('Angello',
         'Angello.Dashboard',
         'Angello.Login',
         'Angello.Storyboard',
+        'Angello.Statistic',
         'Angello.User',
         'auth0',
         'angular-jwt',
@@ -57,6 +58,29 @@ myModule.config(function($routeProvider, $httpProvider, $provide,
             templateUrl: 'src/angello/login/tmpl/login.html',
             controller: 'LoginCtrl',
             controllerAs: 'login'
+        })
+        .when('/statistic',{
+        	templateUrl: 'src/angello/statistic/tmpl/statistic.html',
+        	controller: 'StatisticCtrl',
+        	controllerAs: 'users123',
+        	requiresLogin: true,
+        })
+        .when('/statistic/:userId', {
+            templateUrl: 'src/angello/statistic/tmpl/data.html',
+            controller: 'DataCtrl',
+            controllerAs: 'myUser',
+            requiresLogin: true,
+            resolve: {
+                user: function ($route, $routeParams, UsersModel) {
+                    var userId = $route.current.params['userId']
+                               ? $route.current.params['userId']
+                               : $routeParams['userId'];
+                    return UsersModel.fetch(userId);
+                },
+                stories: function ($rootScope, StoriesModel) {
+                    return StoriesModel.all();
+                }
+            }
         })
         .otherwise({redirectTo: '/'});
 
