@@ -1,4 +1,4 @@
-angular.module('Angello.User')
+angular.module('Angello.Statistic')
     .controller('DataCtrl',
         function ($routeParams, user, stories, $log) {
             var myUser = this;

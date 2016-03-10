@@ -40,6 +40,7 @@ head.load(
     { file: 'src/angello/statistic/Statistic.js'},
     { file: 'src/angello/statistic/controllers/StatisticCtroller.js'},
     { file: 'src/angello/statistic/controllers/DataCtroller.js'},
+    { file: 'src/angello/statistic/directives/D3Chart.js'},
     { file: 'http://d3js.org/d3.v3.min.js'},
     { file: 'src/angello/Angello.js' }
 );
