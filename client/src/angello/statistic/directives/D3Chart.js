@@ -42,6 +42,7 @@ angular.module("Angello.Statistic")
     		 		var height = 400;
     		 		var dataset = [ toDo, inProgress, codeReview, qaReview, verified];
     		 		var svg = d3.select("body")
+    		 					.attr("align","center")// align svg to center
     		 					.append("svg")
     		 					.attr("width", width)
     		 					.attr("height", height);
