@@ -1,12 +1,7 @@
 angular.module('Angello.Statistic')
 .controller('StatisticCtrl', function($scope, $log, UsersModel, $timeout){
-//	var statistic = this;
-//	statistic.style = "+++++++++++++++++++++++++";
-//	$scope.statisticStyle1 = 'the first style';
-//	$scope.statisticStyle2 = 'the second style';
 
-var myUsers = this;
-
+		var myUsers = this;
         myUsers.newUser = { name: '', email: '' };
         myUsers.users = {};
 

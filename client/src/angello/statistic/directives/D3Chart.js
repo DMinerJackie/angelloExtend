@@ -2,45 +2,15 @@ angular.module("Angello.Statistic")
 .directive("d3chart",function(){
                 return{
                  restrict:'EA',
-//                 template:"<div><h3>~~~~~I am a directive~~~~~</h3></div>",
-//                 replace:true
                  scope: {
-                	stories: "="
+                	stories: "=",
+                	statusArr: "="
             	},
                 link: function($scope, $element, $attrs){//link or controller
             		
-                	var len=toDo=inProgress=codeReview=qaReview=verified = 0;
-                	for (var story in $scope.stories) {
-                    	switch ($scope.stories[story].status){
-    	                	case "To Do":
-    	                		toDo++;
-    	                		break;
-    	                	case "In Progress":
-    	                		inProgress++;
-    	                		break;
-    	                	case "Code Review":
-    	                		codeReview++;
-    	                		break;
-    	                	case "QA Review":
-    	                		qaReview++;
-    	                		break;
-    	                	case "Verified":
-    	                		verified++;
-    	                		break;
-                    	}
-                        console.log("=================" + story);
-//                        $log.debug('jsonObj:', jsonObj);
-                        console.log($scope.stories[story].status + "====" + $scope.stories[story].type);
-//                        $log.debug(jsonObj[item].status + "~~~~~~~~~~~~~~" + jsonObj[item].type);
-                    	len++;
-                    }
-
-
-
-
                 	var width = 400;
     		 		var height = 400;
-    		 		var dataset = [ toDo, inProgress, codeReview, qaReview, verified];
+    		 		var dataset = $scope.statusArr;
     		 		var svg = d3.select("body")
     		 					.attr("align","center")// align svg to center
     		 					.append("svg")

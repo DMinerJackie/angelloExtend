@@ -53,4 +53,5 @@ angular.module('Angello.Statistic')
             myUser.codeReview = codeReview;
             myUser.qaReview = qaReview;
             myUser.verified = verified;
+            myUser.statusArr = [toDo, inProgress, codeReview, qaReview, verified];
         });
