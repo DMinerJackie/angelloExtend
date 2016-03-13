@@ -39,7 +39,6 @@ angular.module('Angello.Statistic')
 	                		break;
                 	}
                     console.log("=================" + item);
-//                    $log.debug('jsonObj:', jsonObj);
                     console.log(jsonObj[item].status + "====" + jsonObj[item].type);
                     $log.debug(jsonObj[item].status + "~~~~~~~~~~~~~~" + jsonObj[item].type);
                 	len++;
