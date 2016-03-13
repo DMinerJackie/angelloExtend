@@ -1,14 +1,16 @@
 <div style="margin-top:100px">        
-<div style="color:white" align="center">
-    <h2>Stories Assigned to {{myUser.user.name}}</h2>
-    <h2>Total Stories Num {{myUser.num}}</h2>
-    <h2>To Do:{{myUser.toDo}}</h2>
-    <h2>In Progress:{{myUser.inProgress}}</h2>
-    <h2>Code Review:{{myUser.codeReview}}</h2>
-    <h2>QA Review:{{myUser.qaReview}}</h2>
-    <h2>Verified:{{myUser.verified}}</h2>
-</div>
-
-<div style="color:white" align="center" status-arr="myUser.statusArr" stories="myUser.stories" d3chart></div>
-
+	<div style="color:white" align="center">
+	    <h2>Stories Assigned to {{myUser.user.name}}</h2>
+	    <h2>Total Stories Num {{myUser.num}}</h2>
+	    <h2>To Do:{{myUser.toDo}}</h2>
+	    <h2>In Progress:{{myUser.inProgress}}</h2>
+	    <h2>Code Review:{{myUser.codeReview}}</h2>
+	    <h2>QA Review:{{myUser.qaReview}}</h2>
+	    <h2>Verified:{{myUser.verified}}</h2>
+	</div>
+	
+	<div ng-if="myUser.existed">
+		<div class="flag" existed="myUser.existed"  status-arr="myUser.statusArr" d3chart>
+		</div>    <!-- class=flag is used to manipulate svg into this div in D3Chart.js -->
+	</div>
 </div>
