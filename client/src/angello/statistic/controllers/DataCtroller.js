@@ -18,7 +18,7 @@ angular.module('Angello.Statistic')
             };
 
             myUser.stories = myUser.getAssignedStories(myUser.userId, stories);
-            var len=toDo=inProgress=codeReview=qaReview=verified = 0;
+            var len=0,toDo=0,inProgress=0,codeReview=0,qaReview=0,verified=0;
             function getJsonObjLength(jsonObj) {
                 for (var item in jsonObj) {
                 	switch (jsonObj[item].status){
@@ -38,9 +38,9 @@ angular.module('Angello.Statistic')
 	                		verified++;
 	                		break;
                 	}
-                    console.log("=================" + item);
-                    console.log(jsonObj[item].status + "====" + jsonObj[item].type);
-                    $log.debug(jsonObj[item].status + "~~~~~~~~~~~~~~" + jsonObj[item].type);
+//                    console.log("=================" + item);
+//                    console.log(jsonObj[item].status + "====" + jsonObj[item].type);
+//                    $log.debug(jsonObj[item].status + "~~~~~~~~~~~~~~" + jsonObj[item].type);
                 	len++;
                 }
                 return len;
@@ -52,6 +52,6 @@ angular.module('Angello.Statistic')
             myUser.codeReview = codeReview;
             myUser.qaReview = qaReview;
             myUser.verified = verified;
-            myUser.statusArr = [toDo, inProgress, codeReview, qaReview, verified];
+            myUser.statusArr = [["To Do", toDo], ["In Progress", inProgress], ["Code Review", codeReview], ["QA Review", qaReview], ["Verified", verified]];
             myUser.existed = true;
         });
