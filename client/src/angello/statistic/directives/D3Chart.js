@@ -23,8 +23,8 @@ angular.module("Angello.Statistic").directive(
     						 return d[1];
     						 });
 							var piedata = pie(dataset);
-							var outerRadius = 150; // 外半径
-							var innerRadius = 60; // 内半径，为0则中间没有空白
+							var outerRadius = 180; // 外半径
+							var innerRadius = 50; // 内半径，为0则中间没有空白
 							var arc = d3.svg.arc() // 弧生成器
 							.innerRadius(innerRadius) // 设置内半径
 							.outerRadius(outerRadius); // 设置外半径
@@ -42,8 +42,8 @@ angular.module("Angello.Statistic").directive(
 							arcs.append("text").attr("transform", function(d) {
 								return "translate(" + arc.centroid(d) + ")";
 							}).attr("text-anchor", "middle").text(function(d) {
-								console.log(d);
-								return d.data[0];
+								var percent =Number(d.value)/d3.sum(dataset,function(d){return d[1];})*100;
+								return d.data[0] + ":" + percent.toFixed(1)+"%";
 							});
 							
 							
@@ -57,7 +57,7 @@ angular.module("Angello.Statistic").directive(
 				    	//------------------------------------2.div提示框,通过设置透明度（opacity属性）实现 显示和隐藏	
 				    		//添加提示框的div
 				    		var tooltip = d3.select("body").append("div")
-//				    					.attr("class","tooltip") //用于css设置类样式
+				    					.attr("class",".tooltip") //用于css设置类样式
 				    					.attr("opacity",0.0);
 				    		
 				    		//响应事件
