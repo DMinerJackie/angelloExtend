@@ -45,13 +45,15 @@ angular.module('Angello.Statistic')
             
             function pieChart(){
             	myUser.clear();
-    			myUser.preSet();
+    			var width = 500;
+    			var height = 500;
+    			var dataset = myUser.statusArr;
 //    			if($("svg").length >= 1){  //if exist svg in html source code return, else create     --0320remove the if/else for once stepping into function there existed myUser.clear()
 //    				return;
 //    			}else{
     			//	d3.select("body").attr("align", "center");
-//				var svg = d3.select(".flag").attr("align", "center")// align svg to center and move svg into div
-//				.append("svg").attr("width", width).attr("height", height);
+				var svg = d3.select(".flag").attr("align", "center")// align svg to center and move svg into div
+				.append("svg").attr("width", width).attr("height", height);
 			//	var pie = d3.layout.pie();
 				var pie = d3.layout.pie()
 				.value(function(d){
@@ -140,12 +142,18 @@ angular.module('Angello.Statistic')
             
             function barChart(){
             	myUser.clear();
-            	myUser.preSet();
-            	var color = d3.scale.category10();
-                var dataset = [];                        
-				$.each(datasetArr,function(i, item){
-					dataset.push(item[1]);
-				})
+            	var width = 500;  
+                var height = 500;  
+                var dataset = [];  
+                var color = d3.scale.category10();
+                var datasetArr = myUser.statusArr;
+                $.each(datasetArr,function(i, item){
+                	dataset.push(item[1]);
+                })
+                  	
+                var svg = d3.select(".flag").attr("align", "center").append("svg")  
+                                        .attr("width",width)  
+                                        .attr("height",height);  
                   
                 var xAxisScale = d3.scale.ordinal()  
                                 .domain(['To Do', 'In Progress', 'Code Review','QA Review', 'Verified'])  //here you can define a range varible also emun type  
@@ -222,15 +230,6 @@ angular.module('Angello.Statistic')
                     .call(yAxis);   
             }
             
-            myUser.preSet = function(){
-            	var width = 500;  
-                var height = 500;  
-                var datasetArr = myUser.statusArr;
-                var svg = d3.select(".flag").attr("align", "center").append("svg")  
-                                        .attr("width",width)  
-                                        .attr("height",height);  
-            }
-            
             myUser.clear = function(){
             	var p = d3.selectAll("svg");
             	p.remove();
@@ -238,12 +237,12 @@ angular.module('Angello.Statistic')
             
 			myUser.show = function(chartType){
 				if(chartType == "pie"){
-				pieChart();
-			}else if(chartType == "bar"){
+					pieChart();
+				}else if(chartType == "bar"){
 					barChart();
 				}
-			}
-            
+			}            
+
             myUser.num = getJsonObjLength(myUser.stories);
             myUser.toDo = toDo;
             myUser.inProgress = inProgress;
