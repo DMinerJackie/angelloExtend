@@ -1,3 +1,7 @@
+/**
+ * after process show multi chart type in DataController.js, this directive is no longer used since 
+ */
+
 angular.module("Angello.Statistic").directive(
 		"d3chart",
 		function() {
