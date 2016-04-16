@@ -42,6 +42,6 @@ head.load(
     { file: 'src/angello/statistic/controllers/DataCtroller.js'},
     { file: 'src/angello/statistic/directives/D3Chart.js'},
     { file: 'http://d3js.org/d3.v3.min.js'},
-    { file: '//cdnjs.cloudflare.com/ajax/libs/annyang/2.4j.0/annyang.min.js'},
+    { file: '//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js'},
     { file: 'src/angello/Angello.js' }
 );
