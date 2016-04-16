@@ -1,5 +1,13 @@
 # Angello
 
+##My Part
+##Statistic Part
+**statistic the stories under the current user and show with D3 chart**
+![Show statistic result with D3 chart](https://github.com/DMinerJackie/angelloExtend/blob/master/client/assets/img/resultshow_statisticAndD3Chart.png)
+
+###Speech Recognition
+**go into statistic module, and click link "satistic, then speak 'show bar chart' via predefine command action in code, the corresponding chart will show"
+
 Welcome to Angello, the AngularJS storyboard! Based off the [Trello App](https://trello.com), this repo holds the code for the app built in the [AngularJS in Action](http://www.manning.com/bford/) book. Read on to get started!
 
 ## Prerequisites
@@ -76,10 +84,7 @@ We've made it to the fun part! Go ahead and play around with the app and see wha
 **View stories by type**
 ![Stories by type](https://cloud.githubusercontent.com/assets/590361/4367086/a17ce8c2-42cc-11e4-99f0-432835c3c8f9.png)
 
-##My Part
-##Statistic Part
-**statistic the stories under the current user and show with D3 chart**
-![Show statistic result with D3 chart](https://github.com/DMinerJackie/angelloExtend/blob/master/client/assets/img/resultshow_statisticAndD3Chart.png)
+
 
 ## License
 MIT
