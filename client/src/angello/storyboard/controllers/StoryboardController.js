@@ -3,7 +3,6 @@ angular.module('Angello.Storyboard')
         function ($scope, $log, StoriesModel, UsersModel,
                     STORY_STATUSES, STORY_TYPES) {
         var storyboard = this;
-
         storyboard.detailsVisible = true;
         storyboard.currentStoryId = null;
         storyboard.currentStory = null;
